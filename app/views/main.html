@@ -1,0 +1,205 @@
+<div class="head">          
+  <div class="container">   
+    <div class="book">
+      {{book.title.toUpperCase()}} 
+    </div>
+    <div class="author">
+      <span class="by">By</span>
+      <span class="author-name">{{book.author}}</span>  
+    </div>
+    <div class="smallGrayText">
+      {{publishText()}}
+    </div>
+    <div >          
+     <button class="btn btn-black">
+        ADD TO MY QUEUE 
+     </button>
+     <button class="btn btn-black">
+        I'VE READ IT
+     </button>
+     <button class="btn btn-black">
+        NO THANKS
+     </button>
+     <button class="btn btn-black">
+        <span class="glyphicon glyphicon-heart"  ></span>
+     </button>
+    </div>
+  </div>          
+</div>
+<div id="aboutBook"></div>
+<div class="menu whitebg" bs-affix data-offset-top="240" >
+  <div>  
+    <div class="itemlr" >  
+      <a href="#aboutBook" target="_self">
+        <span class="sphs">
+          About this
+        </span>
+        <span class="bg">
+          BOOK
+        </span>
+      </a>        
+    </div>
+    <div class="itemr" >  
+      <a href="#favQuotes" target="_self">
+        <span class="sphs">
+          Favourite
+        </span>
+        <span class="bg">
+          QUOTES
+        </span>
+      </a>        
+     </div>
+   </div>
+  </div>
+</div>
+<div class="content container" >
+      <div class="row" >
+          <div class="col-md-4">
+            <div class="cover-preview">      
+              <div class="cover">
+                <img ng-src="{{book.image_url}}" height="350px" width="220px"/>
+              </div>
+              <div class="add-preview">
+                <button class="btn btn-green">
+                  <span class="glyphicon icon-vbubble"></span>  ADD A REVIEW
+                </button>
+              </div>         
+            </div>
+            </div>
+          <div class="col-md-8">
+            <div class="row">  
+              <div class="col-md-6 ">
+                <div class="menu about">          
+                  <a href="#about" target="_self">
+                    <span class="sphs">
+                      About this
+                    </span>
+                    <span class="bg">
+                      BOOK
+                    </span>
+                  </a>
+                </div>
+              </div>
+              <div class="col-md-6">
+              </div>        
+            </div>      
+            <div>
+              Currently selected: {{ product  }}
+              <div class="panel panel-default book-panel">
+                  <!-- Default panel contents -->
+                  <div class="panel-heading whitebg">                
+                    <span class="bg"> Price: $ </span><span class="bg">{{ productTypes[0].value.price }}</span>               
+                    <button class="btn btn-green pull-right">
+                      <span class="glyphicon icon-vshop"></span> BUY eBOOK
+                    </button>             
+                  </div>              
+                  <div class="panel-body graybg">
+                     <div>                
+                      <span class="bg"> Price: $ </span><span class="bg">{{ products.product.value.price }}</span>               
+                      <button class="btn btn-green pull-right">
+                          ADD TO CART
+                      </button>             
+                     </div>
+                     <div> 
+                      <select class="product-type" selectpicker ng-model="products.product" ng-options="p.name for p in productTypes" ></select>
+                      </div>
+                  </div>
+                    <div class="panel-footer whitebg">
+                       <select selectpicker >                     
+                        <option>BUY ELSEWHERE</option>                    
+                      </select>
+                    </div>
+              </div>         
+              <p>{{book.description}}</p>
+            </div>
+            <div class="book-properties small-text">  
+              <div>
+                <span class="bold-text">ISBN: </span><span>{{book.isbn}}</span>
+              </div>
+              <div>
+                <span class="bold-text">FORMAT: </span><span>{{book.format}}</span>
+              </div>
+              <div>
+                <span class="bold-text">PAGES: </span><span>{{book.pages}}</span>
+              </div>
+              <div>
+                <span class="bold-text">PUBLICATION DATE: </span><span>{{book.publication_date}}</span>
+              </div>
+            </div>            
+          </div>
+          </div>
+</div>
+<div class="fav-quotes" id="favQuotes">          
+  <div class="container"> 
+    <div class="menu quote-text">          
+      <a href="#about">
+        <span class="sphs">
+          Favourite
+        </span>
+        <span class="bg">
+          QUOTES
+        </span>
+      </a>
+    </div>
+    <div class="add-quote">                    
+        <button class="btn btn-green" ng-click="showQuote()">
+          <span class="glyphicon icon-vquote"></span> ADD A QUOTE
+        </button>
+        <div ng-show="showQuoteInput" class="quote-save">
+         <div class="row">  
+              <div class="col-md-10" >
+                <input ng-model="quote.text" name="quote.text" placeholder="Please enter your favourite quote" class="quote-input"/>
+              </div>
+              <div class="col-md-1">
+          <button class="btn btn-green" ng-click="saveQuote()">
+             <span class="glyphicon glyphicon-plus-sign"></span> SAVE
+          </button>
+          </div>
+          <div class="col-md-1">
+            <button class="btn btn-green" ng-click="closeQuote()">
+            <span class="glyphicon glyphicon-remove-sign"></span> CANCEL
+          </button>
+          </div>
+          </div>
+        </div>      
+    </div>
+    <div class="quote">
+      <div class="row">
+          <div class="col-md-1">
+            <div class="icon-vquotebig-left"></div>
+          </div>
+          <div class="col-md-10">
+            {{activeQuote}}
+          </div>
+          <div class="col-md-1">
+            <div class="icon-vquotebig-right"></div>
+          </div>
+    </div>        
+    </div>
+    <div class="view-quotes container">                    
+        <button class="btn btn-white" ng-click="showAllQuotes()">
+          VIEW ALL QUOTES <span class="glyphicon icon-vlarrow"></span>
+        </button>
+        <div ng-show="showQuotes" class="quotePanel">
+         <div class="row">  
+              <div class="col-md-12">
+                <div class="panel panel-default">
+                  <!-- Default panel contents -->
+                  <div class="panel-heading"> 
+                    Quotes
+                  </div>              
+                  <div class="panel-body">
+                    <ul >
+                      <li ng-repeat="q in quotes">
+                        {{q}}
+                      </li>
+                    </ul>
+                  </div>
+                  </div>
+                
+              </div>
+          </div>
+          </div>
+        </div>  
+</div>
+</div>
