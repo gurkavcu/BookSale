@@ -5,7 +5,7 @@ angular.module('bookSaleApp', [
   'ngRoute',
   'mgcrea.ngStrap',
   'LocalStorageModule'
-]).config(
+]).config( 
     ['$routeProvider' , 'localStorageServiceProvider', function($routeProvider , localStorageService) {
       $routeProvider
       .when('/', {

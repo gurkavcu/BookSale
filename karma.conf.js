@@ -9,11 +9,24 @@ module.exports = function(config) {
     // testing framework to use (jasmine/mocha/qunit/...)
     frameworks: ['jasmine'],
 
+    plugins : [
+    'karma-jasmine',
+    'karma-firefox-launcher'  
+    ],
+
     // list of files / patterns to load in the browser
-    files: [
+    files: [      
       'app/bower_components/angular/angular.js',
+      'app/bower_components/angular-route/angular-route.js',
+      'app/bower_components/angular-resource/angular-resource.js',
+      'app/bower_components/angular-strap/dist/angular-strap.js',
+      'app/bower_components/angular-animate/angular-animate.js',
       'app/bower_components/angular-mocks/angular-mocks.js',
+      'app/bower_components/jquery/jquery.js',
+      'app/bower_components/bootstrap-select/bootstrap-select.js',
+      'app/scripts/angular-local-storage.js',
       'app/scripts/*.js',
+      'app/scripts/controllers/*.js',
       'app/scripts/**/*.js',
       'test/mock/**/*.js',
       'test/spec/**/*.js'
@@ -42,11 +55,11 @@ module.exports = function(config) {
     // - Safari (only Mac)
     // - PhantomJS
     // - IE (only Windows)
-    browsers: ['Chrome'],
+    browsers: ['Firefox'],
 
 
     // Continuous Integration mode
     // if true, it capture browsers, run tests and exit
-    singleRun: false
+    singleRun: true
   });
 };
