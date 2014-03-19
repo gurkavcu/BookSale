@@ -84,7 +84,6 @@
               </div>        
             </div>      
             <div>
-              Currently selected: {{ product  }}
               <div class="panel panel-default book-panel">
                   <!-- Default panel contents -->
                   <div class="panel-heading whitebg">                
@@ -101,11 +100,11 @@
                       </button>             
                      </div>
                      <div> 
-                      <select class="product-type" selectpicker ng-model="products.product" ng-options="p.name for p in productTypes" ></select>
+                      <select class="product-type fullWidth" selectpicker ng-model="products.product" ng-options="p.name for p in productTypes" ></select>
                       </div>
                   </div>
                     <div class="panel-footer whitebg">
-                       <select selectpicker >                     
+                       <select selectpicker class="fullWidth">                     
                         <option>BUY ELSEWHERE</option>                    
                       </select>
                     </div>
