@@ -32,14 +32,12 @@ Checkout build subdirectory for deployment ready code.
 
 ## How to Test
 
-We need to install grunt-karma & firefox launcher plugin to test easily :
+We need to install grunt-karma , karma-jasmine and firefox launcher plugins :
 
 * npm install grunt-karma
+* npm install karma-jasmine 
 * npm install karma-firefox-launcher
 
 Now all you need to do is :
 
 * grunt karma
-
-
-
