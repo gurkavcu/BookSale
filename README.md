@@ -1,5 +1,5 @@
 # Book Sale Application
-This is a simple frontend for book selling application. We are using angularjs to show some simple bindings and using localstorage to cache some user data.
+This is a simple frontend for book selling application. We are using angularjs to show some simple bindings and browser's localstorage to cache some user data.
 
 ## Requirements
 *   NodeJS & Npm
@@ -29,3 +29,17 @@ You can build all project with this:
 Checkout build subdirectory for deployment ready code.
 
 ** Some of requirements may need to call nodejs as node. Create a symbolic link for that cases.
+
+## How to Test
+
+We need to install grunt-karma & firefox launcher plugin to test easily :
+
+* npm install grunt-karma
+* npm install karma-firefox-launcher
+
+Now all you need to do is :
+
+* grunt karma
+
+
+
