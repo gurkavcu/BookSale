@@ -9,7 +9,7 @@ This is a simple frontend for book selling application. We are using angularjs t
 
 First you need to install nodejs and npm package manager. 
 
-Inside the base folder run following comammands to install requirements :
+Inside the base folder run following commands to install requirements :
 
 * npm install -g yo grunt-cli bower
 
