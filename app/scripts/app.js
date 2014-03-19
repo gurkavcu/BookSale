@@ -15,5 +15,4 @@ angular.module('bookSaleApp', [
         redirectTo: '/'
       });       
       localStorageService.setPrefix('bookSaleApp');
-      window.xxx = localStorageService;
     }]);
