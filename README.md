@@ -1,5 +1,5 @@
 # Book Sale Application
-This is a simple frontend for book selling application. We are using angularjs to show some simple bindings and using localstorage to cache some user data
+This is a simple frontend for book selling application. We are using angularjs to show some simple bindings and using localstorage to cache some user data.
 
 ## Requirements
 *   NodeJS & Npm
@@ -21,5 +21,11 @@ Then run following commands to install other dependencies :
 Finally run this command to start up application :
 
 * grunt serve
+
+You can build all project with this:
+
+* grunt build
+
+Checkout build subdirectory for deployment ready code.
 
 ** Some of requirements may need to call nodejs as node. Create a symbolic link for that cases.
