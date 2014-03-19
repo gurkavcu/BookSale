@@ -16,16 +16,26 @@ bookSaleApp.controller('BookCtrl', function($scope, $http , $interval, $timeout,
   $scope.activeQuote = "Add your favourite quote from the book";
 
   /**
-  * Load book data and create quote array with the help of existing localStorageValues. 
-  */
-  $http.get('../books/book.json').success(function(data) {
-    $scope.book = data;
-    $scope.productTypes = formatProductTypes();  
-    $scope.products.product =  $scope.productTypes[0];
-    quoteDict = getOrCreateQuoteDict();
-    $scope.quotes = getQuotesArray(quoteDict);    
-	updateSelectBoxes();
+  * Load book data and create quote array with the help of existing localStorageValues.
+  * Using static book data for serverless demo
+  *
+    $http.get('../books/book.json').success(function(data) {
+      $scope.book = data;
+      $scope.productTypes = formatProductTypes();  
+      $scope.products.product =  $scope.productTypes[0];
+      quoteDict = getOrCreateQuoteDict();
+      $scope.quotes = getQuotesArray(quoteDict);    
+  	  updateSelectBoxes();
   });
+  */
+  var loadBook = function() {
+      $scope.book = bookData;
+      $scope.productTypes = formatProductTypes();  
+      $scope.products.product =  $scope.productTypes[0];
+      quoteDict = getOrCreateQuoteDict();
+      $scope.quotes = getQuotesArray(quoteDict);    
+      updateSelectBoxes();
+  }
 
   /**
   *	Add this quote to dictionary and scope if this quote doesnt exist
@@ -126,7 +136,8 @@ bookSaleApp.controller('BookCtrl', function($scope, $http , $interval, $timeout,
   * Rotate quote array every 4 sec
   */
   $interval(rotateQuotes,4000);
-  rotateQuotes();  
+  rotateQuotes();
+  loadBook();
   
 });
 
